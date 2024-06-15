@@ -4,17 +4,17 @@ from PIL import Image, ImageTk
 from tkinter import Frame, Label
 
 class Employee:
-    def _init_(self, id, name, position, salary):
+    def __init__(self, id, name, position, salary):
         self.id = id
         self.name = name
         self.position = position
         self.salary = salary
 
 class EmployeeManagementSystem:
-    def _init_(self, master):
+    def __init__(self, master):
         self.find_window = None 
         self.master = master
-        self.master.title("Employee Management System | Developed by Harshitha and Aparna")
+        self.master.title("Employee Management System | Developed by Aparna")
         # Get screen width and height
         screen_width = self.master.winfo_screenwidth()
         screen_height = self.master.winfo_screenheight()
@@ -22,7 +22,7 @@ class EmployeeManagementSystem:
         # Set window size to fit the screen
         self.master.geometry(f"{screen_width}x{screen_height}")
 
-        background_image = Image.open("empbg.jpg")
+        background_image = Image.open("emp.jpg")
         background_image = background_image.resize((1900, 1200), Image.BILINEAR)
         self.background_photo = ImageTk.PhotoImage(background_image)
 
@@ -36,7 +36,7 @@ class EmployeeManagementSystem:
         self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         # Open the image
-        icon_image = Image.open("emplogo.jpg")
+        icon_image = Image.open("logo.jpg")
         desired_width = 80  
         desired_height = 80  
         icon_image = icon_image.resize((desired_width, desired_height), Image.BILINEAR)
@@ -296,5 +296,5 @@ def main():
     app = EmployeeManagementSystem(root)
     root.mainloop()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
